@@ -1,23 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+    include("conexao.php");
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./global.css">
-    <title>Document</title>
-</head>
+    $cpf=$_POST["cpf"];
+    $senha=$_POST["senha"];
+    
+    if (!isset($_POST['cpf'])|| $_POST['cpf'] == '') {
+        die("insira um cpf");
+    }
+    if (!isset($_POST['senha'])||$_POST['senha']=='') {
+       die("insira uma senha");
+    }
 
-<body>
-    <?php
-    echo "Otario:  " . $_POST['nome'] . "<br>";
-    echo "CPF do otario:  " . $_POST['cpf'] . "<br> Se fudeu teu cu e meu \u{1F595}";
-    echo "<hr> ";
-    echo "" . var_dump($_POST) . "<br>";
+    $sql = "select nome from usuarios where cpf='$cpf' and senha= '$senha'";
 
+    $resultado = $conn->query($sql);
+    $row = $resultado->fetch_assoc();
 
+    if (isset($row) && $row['nome']!= '') {
+        session_start();
+        $_SESSION["cpf"]=$cpf;
+        $_SESSION["senha"]=$senha;
+        $_SESSION["nome"]= $row['nome'];
+        header("location: principal.php");
+
+    }else{
+        echo"senha ou cpf invalidos";
+    }
     ?>
-
-</body>
-
-</html>

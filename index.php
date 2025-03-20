@@ -8,14 +8,12 @@
 </head>
 
 <body>
-    <?php
-    echo "Bom dia caralho \u{1F595}";
-    ?>
+
     <form action="dados.php" method="post">
-        <label for="">Digite seu nome:</label>
-        <input type="text" name="nome" id="nome">
         <label for="">Digite seu cpf:</label>
-        <input type="number" name="cpf" id="cpf">
+        <input type="text" name="cpf" id="cpf"><br>
+        <label for="">Digite sua senha:</label>
+        <input type="text" name="senha" id="senha"><br>
         <input type="submit" value="Enviar">
     </form>
 
