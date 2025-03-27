@@ -1,0 +1,44 @@
+.body{
+    width: 800px;
+    margin: 0 auto;
+}
+
+.haeder{
+    min-height: 100px;
+    width: 100%;
+    background-color: rgb(128, 0, 128);
+}
+
+.name{
+    width: 50%;
+    float: left;
+}
+
+.box_button{
+    width: 50%;
+    float: left;
+    text-align: right;
+}
+
+.button{
+    background-color: rgb(68, 0, 68);
+    margin-right: 10px;
+}
+
+.sidebar{
+    width: 200px;
+    background-color: #f4f4f4;
+    min-height: 400px;
+    float: left;
+}
+
+.sidebar p{
+    color: black;
+}
+
+.main{
+    background-color: #ddd;
+    min-height: 400px;
+    width: 600px;
+    float: left;
+}

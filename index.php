@@ -9,7 +9,7 @@
 
 <body>
 
-    <form action="dados.php" method="post">
+    <form action="./src/dados.php" method="post">
         <label for="">Digite seu cpf:</label>
         <input type="text" name="cpf" id="cpf"><br>
         <label for="">Digite sua senha:</label>
