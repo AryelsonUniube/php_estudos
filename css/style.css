@@ -1,44 +1,44 @@
-.body{
-    width: 800px;
-    margin: 0 auto;
+.body {
+  width: 800px;
+  margin: 0 auto;
 }
 
-.haeder{
-    min-height: 100px;
-    width: 100%;
-    background-color: rgb(128, 0, 128);
+.haeder {
+  min-height: 100px;
+  width: 100%;
+  background-color: rgb(233, 24, 233);
 }
 
-.name{
-    width: 50%;
-    float: left;
+.name {
+  width: 50%;
+  float: left;
 }
 
-.box_button{
-    width: 50%;
-    float: left;
-    text-align: right;
+.box_button {
+  width: 50%;
+  float: left;
+  text-align: right;
 }
 
-.button{
-    background-color: rgb(68, 0, 68);
-    margin-right: 10px;
+.button {
+  background-color: rgb(206, 28, 206);
+  margin-right: 10px;
 }
 
-.sidebar{
-    width: 200px;
-    background-color: #f4f4f4;
-    min-height: 400px;
-    float: left;
+.sidebar {
+  width: 200px;
+  background-color: #f4f4f4;
+  min-height: 400px;
+  float: left;
 }
 
-.sidebar p{
-    color: black;
+.sidebar p {
+  color: black;
 }
 
-.main{
-    background-color: #ddd;
-    min-height: 400px;
-    width: 600px;
-    float: left;
+.main {
+  background-color: #ddd;
+  min-height: 400px;
+  width: 600px;
+  float: left;
 }

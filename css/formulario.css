@@ -1,0 +1,66 @@
+body {
+  width: 100dvh;
+  height: 100dvh;
+  background-image: url("../img/wallpapersden.com_anime-city-4k-top-view_4096x2272.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.body {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.formulario {
+  backdrop-filter: blur(10px);
+  width: 25%;
+  height: 25%;
+  align-items: center;
+  justify-content: center;
+}
+
+.haeder {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: x-large;
+  text-decoration: double;
+  margin: 19px;
+}
+
+.senha {
+  margin: 15px;
+}
+.senha input,
+.cpf input {
+  background-color: transparent;
+  border: 2px;
+  border-bottom-style: inset;
+  border-color: rgb(66, 32, 185);   
+  width: 150px;
+  height: 25px;
+}
+input::placeholder {
+  color: rgb(255, 255, 255); 
+   
+}
+
+
+.buton {
+  border-radius: 5px;
+  background-color: white;
+  width: 150px;
+  height: 25px;
+  margin-top: 30px;
+  
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
