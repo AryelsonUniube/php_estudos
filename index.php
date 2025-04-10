@@ -23,7 +23,7 @@
                     <input type="password" name="senha" id="senha" placeholder="Senha:"><br>
                 </div>
 
-                <input type="submit" value="Enviar">
+                <input type="submit" value="Enviar" class="buton">
             </form>
         </div>
 
