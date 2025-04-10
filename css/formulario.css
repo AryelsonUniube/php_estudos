@@ -2,75 +2,80 @@ body {
   background-image: url("../img/wallpapersden.com_anime-city-4k-top-view_4096x2272.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  margin: 0;  
-}
-.body {
-  width: 100vw;
-  height: 100vh;
+  background-position: center;
+  margin: 0;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
+.body{
+  width: 90vw;
+  max-width: 400px; 
+  height: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;}
 
 .formulario {
   backdrop-filter: blur(10px);
-  width: 25vw;
-  height: 25vh;
-  align-items: center;
-  justify-content: center;
-}
-
-.haeder {
-  color: rgb(255, 255, 255);
-  text-align: center;
-  font-size: x-large;
-  text-decoration: double;
-  margin: 19px;
-}
-
-.senha {
-  margin: 15px;
-}
-.senha input,
-.cpf input {
-  
-  background-color: transparent;
-  border: 2px;
-  border-bottom-style: inset;
-  border-color: rgb(66, 32, 185);   
-  width: 200px;
-  height: 25px;
-}
-input::placeholder {
-  color: rgb(255, 255, 255); 
-   
-}
-.senha input:focus,
-.cpf input:focus {
-
-  outline: none;
-}
-
-
-.buton {
-  position: absolute;
-  bottom: 5px;
-  border-radius: 5px;
-  background-color: white;
-  width: 150px;
-  height: 25px;
-  
-  
-}
-
-.buton:hover{
-  background-color: rgb(168, 168, 168);
-}
-
-form {
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 10px;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
   align-items: center;
 }
+
+.header {
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.senha, .cpf {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.senha input, .cpf input {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  width: 100%;
+  padding: 8px;
+  background-color: transparent;
+  border-bottom: 2px solid rgb(66, 32, 185);
+  
+  color: white;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.senha input:focus, .cpf input:focus {
+  outline: none;
+  border-color: rgb(255, 255, 255);
+}
+
+.buton {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.buton:hover {
+  background-color: rgb(168, 168, 168);
+}
+
+
