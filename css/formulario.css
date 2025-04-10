@@ -1,14 +1,12 @@
-body {
-  width: 100dvh;
-  height: 100dvh;
+body {  
   background-image: url("../img/wallpapersden.com_anime-city-4k-top-view_4096x2272.jpg");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
+  margin: 0;  
 }
 .body {
   width: 100vw;
   height: 100vh;
-
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -17,13 +15,8 @@ body {
 
 .formulario {
   backdrop-filter: blur(10px);
-<<<<<<< HEAD
-  width: 25%;
-  height: 25%;
-=======
-  width: 300px;
-  height: 200px;
->>>>>>> 354694e86498252e9341758b5ad372a212079c26
+  width: 25vw;
+  height: 25vh;
   align-items: center;
   justify-content: center;
 }
@@ -41,38 +34,38 @@ body {
 }
 .senha input,
 .cpf input {
-<<<<<<< HEAD
+  
   background-color: transparent;
   border: 2px;
   border-bottom-style: inset;
   border-color: rgb(66, 32, 185);   
-  width: 150px;
+  width: 200px;
   height: 25px;
 }
 input::placeholder {
   color: rgb(255, 255, 255); 
    
 }
+.senha input:focus,
+.cpf input:focus {
+
+  outline: none;
+}
 
 
 .buton {
+  position: absolute;
+  bottom: 5px;
   border-radius: 5px;
   background-color: white;
   width: 150px;
   height: 25px;
-  margin-top: 30px;
   
-=======
-  width: 150px;
-  height: 25px;
+  
 }
 
-.buton {
-  background-color: rgb(201, 79, 184);
-  width: 150px;
-  height: 25px;
-  margin-top: 30px;
->>>>>>> 354694e86498252e9341758b5ad372a212079c26
+.buton:hover{
+  background-color: rgb(168, 168, 168);
 }
 
 form {
