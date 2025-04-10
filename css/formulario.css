@@ -1,0 +1,33 @@
+.body {
+    width: 800px;
+    margin: 30px auto;
+}
+
+.formulario {
+    width: 400px;
+    margin: auto auto;
+}
+
+.haeder {
+    text-align: center;
+    font-size: x-large;
+    text-decoration: double;
+    margin: 19px;
+}
+
+.senha {
+    margin: 15px;
+}
+
+.senha input,
+.cpf input {
+    border: 0;
+    border-bottom: 1px;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
