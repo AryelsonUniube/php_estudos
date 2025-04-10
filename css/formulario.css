@@ -17,8 +17,13 @@ body {
 
 .formulario {
   backdrop-filter: blur(10px);
+<<<<<<< HEAD
   width: 25%;
   height: 25%;
+=======
+  width: 300px;
+  height: 200px;
+>>>>>>> 354694e86498252e9341758b5ad372a212079c26
   align-items: center;
   justify-content: center;
 }
@@ -36,6 +41,7 @@ body {
 }
 .senha input,
 .cpf input {
+<<<<<<< HEAD
   background-color: transparent;
   border: 2px;
   border-bottom-style: inset;
@@ -56,6 +62,17 @@ input::placeholder {
   height: 25px;
   margin-top: 30px;
   
+=======
+  width: 150px;
+  height: 25px;
+}
+
+.buton {
+  background-color: rgb(201, 79, 184);
+  width: 150px;
+  height: 25px;
+  margin-top: 30px;
+>>>>>>> 354694e86498252e9341758b5ad372a212079c26
 }
 
 form {
