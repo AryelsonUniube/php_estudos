@@ -1,26 +1,31 @@
-.body{
+.body {
     width: 800px;
     margin: 30px auto;
 }
-.formulario{
+
+.formulario {
     width: 400px;
     margin: auto auto;
 }
-.haeder{
+
+.haeder {
     text-align: center;
     font-size: x-large;
     text-decoration: double;
     margin: 19px;
 }
-.senha{
+
+.senha {
     margin: 15px;
 }
-.senha input,.cpf input{
+
+.senha input,
+.cpf input {
     border: 0;
     border-bottom: 1px;
 }
 
-form{
+form {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
