@@ -11,9 +11,6 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-}
-
-.body {
   height: 800px;
   width: 90%;
   max-width: 1200px;
@@ -23,11 +20,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-.content{
-  height: 91%;
-}
-
-
 .haeder {
   display: flex;
   justify-content: center;

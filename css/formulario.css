@@ -13,8 +13,6 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-}
-.body{
   width: 90vw;
   max-width: 400px; 
   height: auto;
@@ -22,7 +20,11 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;}
+  align-items: center;
+}
+
+  
+ 
 
 .formulario {
   backdrop-filter: blur(10px);
