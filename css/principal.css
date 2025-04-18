@@ -11,14 +11,18 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  height: 800px;
-  width: 90%;
+  
+  
+}
+.body{
   max-width: 1200px;
   background: #fff;
   border-radius: 20px;
   box-shadow: 0px 4px 15px  rgb(0, 0, 0);  
   display: flex;
   flex-direction: column;
+  height: 90%;
+  width: 90%;
 }
 .haeder {
   display: flex;

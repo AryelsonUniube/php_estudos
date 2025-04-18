@@ -13,7 +13,9 @@
     <div class="body">
 
         <div class="formulario">
-            <div class="haeder">LOGIN</div>
+            <div class="haeder">
+                <h2 class="title">LOGIN</h2>
+            </div>
             <form action="./src/dados.php" method="post">
 
                 <div class="cpf">
