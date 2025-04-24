@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/formulario.css">
+    <link rel="stylesheet" href="../css/formulario.css">
 
     <title>Document</title>
 </head>
@@ -14,10 +14,13 @@
 
         <div class="formulario">
             <div class="haeder">
-                <h2 class="title">LOGIN</h2>
+                <h2 class="title">Cadastro</h2>
             </div>
-            <form action="./src/dados.php" method="post">
+            <form action="salvarUsuario.php" method="post">
 
+                <div class="nome">
+                    <input type="text" name="nome" id="nome" placeholder="Nome:"><br>
+                </div>
                 <div class="cpf">
                     <input type="text" name="cpf" id="cpf" placeholder="CPF:"><br>
                 </div>
@@ -26,9 +29,6 @@
                 </div>
 
                 <input type="submit" value="Enviar" class="buton">
-                <div class="box_cadastro">
-                    <a href="./src/cadastro.php">Cadastrar</a>
-                </div>
             </form>
         </div>
 

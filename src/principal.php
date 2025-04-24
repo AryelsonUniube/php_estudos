@@ -18,7 +18,7 @@
             <div class="haeder">
                 <div class="name"><span>Salve <?= $_SESSION['nome']; ?></span></div>
                 <div class="box_button"><span class="button">
-                        <a href="../index.php"><img src="../img/1828427.png" alt="Sair"></a>
+                        <a href="./sair.php"><img src="../img/1828427.png" alt="Sair"></a>
                     </span></div>
             </div>
             <div class="main-container">
