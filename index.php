@@ -26,9 +26,7 @@
                 </div>
 
                 <input type="submit" value="Enviar" class="buton">
-                <div class="box_cadastro">
-                    <a href="./src/cadastro.php">Cadastrar</a>
-                </div>
+
             </form>
         </div>
 

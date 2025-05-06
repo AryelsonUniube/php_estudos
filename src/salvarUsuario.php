@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include("autenticacao.php");
 include("conexao.php");
@@ -8,17 +8,16 @@ $nome = $_POST['nome'];
 $senha = $_POST['senha'];
 
 
-$sql ="insert into usuarios (cpf,nome,senha) values (?,?,?); ";
+$sql = "insert into usuarios (cpf,nome,senha) values (?,?,?); ";
 $stmt = $conn->prepare($sql);
 
 if ($stmt) {
     $stmt->bind_param("sss", $cpf, $nome, $senha);
     if ($stmt->execute()) {
-        header("Location: cadastrarUsuario.php");
+        header("Location: cadastro.php");
 
-    die;        
-    }else{
-        echo'erro';
+        die;
+    } else {
+        echo 'erro';
     }
 }
-?>
