@@ -25,7 +25,7 @@
                 <div class="sidebar">
                     <h2 class="title menu">Menu</h2>
                     <p><a href="./cadastro.php">cadastrar usuario</a></p>
-                    <p><a href="item.php">Item 2</a> </p>
+                    <p><a href="./cadastroFilmes.php">cadastrar filmes</a> </p>
                     <p><a href="item.php">Item 3</a></p>
                 </div>
                 <div class="main">

@@ -30,24 +30,36 @@
                 </div>
                 <div class="main">
                     <div class="main content">
-                        <h2 class="title main">Cadastro de usuario</h2>
-                        <form action="salvarUsuario.php" method="post">
+                        <?php include ("conexao.php")?>
+                        <h2 class="title main">Cadastro de filmes</h2>
+                        <form action="inserirFilme.php" method="post">
 
-                            <div class="cpf">
-                                <input type="text" name="cpf" id="cpf" placeholder="CPF:"><br>
-                            </div>
                             <div class="nome">
                                 <input type="text" name="nome" id="nome" placeholder="Nome:"><br>
                             </div>
-                            <div class="senha">
-                                <input type="password" name="senha" id="senha" placeholder="Senha:"><br>
+                            <div class="ano">
+                                <input type="text" name="ano" id="ano" placeholder="Ano:"><br>
                             </div>
+                            <select name="genero" id="genero">
+                                <option value="">Selecione um Gênero</option>
+                                <?php 
+                                $sql = "select * from generos where status=1";
+                                if (!$resultado = $conn->query($sql)) {
+                                    die("erro");
+                                }
+                                while ($row = $resultado->fetch_assoc()) {
+                                ?>
+                                <option value="<?=$row['genero'];?>"><?=$row['genero'];?></option>
+                                <?php 
+                                }
+                                ?>
+                            </select>
                             <input type="submit" value="Enviar" class="buton">
 
                         </form>
                         <?php
                         include("conexao.php");
-                        $sql = "select nome,cpf,senha from usuarios";
+                        $sql = "select filmes.nome,generos.genero,filmes.ano from filmes inner join generos on filmes.genero_id = generos.genero_id";
                         if (!$resultado = $conn->query($sql)) {
                             die("erro");
                         }
@@ -55,8 +67,8 @@
                         <table>
                             <tr>
                                 <td>Nome</td>
-                                <td>cpf</td>
-                                <td>senha</td>
+                                <td>genero</td>
+                                <td>ano</td>
                                 <td>alterar</td>
                                 <td>apagar</td>
 
@@ -66,10 +78,10 @@
                             ?>
                             <tr>
                                 <form action="alterarUsuario.php" method="post">
-                                    <input type="hidden" name="cpfAnterior" value="<?= $row['cpf']; ?>">
+
                                     <td><input type="text" name="nome" value="<?= $row['nome']; ?>"></td>
-                                    <td><input type="text" name="cpf" value="<?= $row['cpf']; ?>"></td>
-                                    <td><input type="text" name="senha" value="<?= $row['senha']; ?>"></td>
+                                    <td><input type="text" name="genero" value="<?= $row['genero']; ?>"></td>
+                                    <td><input type="text" name="ano" value="<?= $row['ano']; ?>"></td>
                                     <td><input type="submit" value="alterar"></td>
                                 </form>
                                 <form action="apagarUsuario.php" method="post">
