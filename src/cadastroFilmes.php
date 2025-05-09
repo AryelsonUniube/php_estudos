@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/principal.css">
+    <link rel="stylesheet" href="../css/cadastroFilmes.css">
 
 
 
@@ -53,8 +53,8 @@
                                 <?php 
                                 }
                                 ?>
-                            </select>
-                            <input type="submit" value="Enviar" class="buton">
+                            </select><br>
+                            <input type="submit" value="enviar" class="buton">
 
                         </form>
                         <?php
@@ -69,24 +69,35 @@
                                 <td>Nome</td>
                                 <td>genero</td>
                                 <td>ano</td>
-                                <td>alterar</td>
-                                <td>apagar</td>
+
 
                             </tr>
                             <?php
                             while ($row = $resultado->fetch_assoc()) {
                             ?>
                             <tr>
-                                <form action="alterarUsuario.php" method="post">
+                                <form action="./alterarFilme.php" method="post">
+                                    <input type="hidden" name="filme" value="<?= $row['filme']; ?>">
 
-                                    <td><input type="text" name="nome" value="<?= $row['nome']; ?>"></td>
-                                    <td><input type="text" name="genero" value="<?= $row['genero']; ?>"></td>
-                                    <td><input type="text" name="ano" value="<?= $row['ano']; ?>"></td>
-                                    <td><input type="submit" value="alterar"></td>
+
+                                    <td>
+                                        <div class="nome"><input type="text" name="nome" value="<?= $row['nome']; ?>">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <select name="genero" id="genero">
+                                            <option value="<?=$row['genero'];?>"><?=$row['genero'];?></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <div class="ano"><input type="text" name="ano" value="<?= $row['ano']; ?>">
+                                        </div>
+                                    </td>
+                                    <td><input type="submit" value="alterar" class="buton"></td>
                                 </form>
-                                <form action="apagarUsuario.php" method="post">
-                                    <input type="hidden" name="cpf" value="<?= $row['cpf']; ?>">
-                                    <td><input type="submit" value="apagar"></td>
+                                <form action="./apagarFilme.php" method="post">
+                                    <input type="hidden" name="filme" value="<?= $row['filme']; ?>">
+                                    <td><input type="submit" value="apagar" class="buton"></td>
                                 </form>
                             </tr>
                             <?php

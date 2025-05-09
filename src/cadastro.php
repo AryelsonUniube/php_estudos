@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/principal.css">
+    <link rel="stylesheet" href="../css/cadastroUsuario.css">
 
 
 
@@ -57,8 +57,7 @@
                                 <td>Nome</td>
                                 <td>cpf</td>
                                 <td>senha</td>
-                                <td>alterar</td>
-                                <td>apagar</td>
+
 
                             </tr>
                             <?php
@@ -67,14 +66,23 @@
                             <tr>
                                 <form action="alterarUsuario.php" method="post">
                                     <input type="hidden" name="cpfAnterior" value="<?= $row['cpf']; ?>">
-                                    <td><input type="text" name="nome" value="<?= $row['nome']; ?>"></td>
-                                    <td><input type="text" name="cpf" value="<?= $row['cpf']; ?>"></td>
-                                    <td><input type="text" name="senha" value="<?= $row['senha']; ?>"></td>
-                                    <td><input type="submit" value="alterar"></td>
+                                    <td>
+                                        <div class="nome"><input type="text" name="nome" value="<?= $row['nome']; ?>">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="cpf"><input type="text" name="cpf" value="<?= $row['cpf']; ?>">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="senha"><input type="text" name="senha"
+                                                value="<?= $row['senha']; ?>"></div>
+                                    </td>
+                                    <td><input type="submit" value="alterar" class="buton"></td>
                                 </form>
                                 <form action="apagarUsuario.php" method="post">
                                     <input type="hidden" name="cpf" value="<?= $row['cpf']; ?>">
-                                    <td><input type="submit" value="apagar"></td>
+                                    <td><input type="submit" value="apagar" class="buton"></td>
                                 </form>
                             </tr>
                             <?php
