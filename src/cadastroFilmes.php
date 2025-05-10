@@ -49,7 +49,7 @@
                                 }
                                 while ($row = $resultado->fetch_assoc()) {
                                 ?>
-                                <option value="<?=$row['genero'];?>"><?=$row['genero'];?></option>
+                                <option value="<?=$row['genero_id'];?>"><?=$row['genero'];?></option>
                                 <?php 
                                 }
                                 ?>
@@ -59,11 +59,13 @@
                         </form>
                         <?php
                         include("conexao.php");
-                        $sql = "select filmes.nome,generos.genero,filmes.ano from filmes inner join generos on filmes.genero_id = generos.genero_id";
+                        $sql = "select filmes.nome,generos.genero,filmes.ano,filmes.filme from filmes inner join generos on filmes.genero_id = generos.genero_id";
                         if (!$resultado = $conn->query($sql)) {
                             die("erro");
                         }
+                       
                         ?>
+
                         <table>
                             <tr>
                                 <td>Nome</td>
@@ -77,16 +79,19 @@
                             ?>
                             <tr>
                                 <form action="./alterarFilme.php" method="post">
-                                    <input type="hidden" name="filme" value="<?= $row['filme']; ?>">
+                                    <input type="hidden" name="filmeAnterior" value="<?= $row['filme']; ?>">
 
 
                                     <td>
                                         <div class="nome"><input type="text" name="nome" value="<?= $row['nome']; ?>">
                                         </div>
                                     </td>
+
                                     <td>
                                         <select name="genero" id="genero">
-                                            <option value="<?=$row['genero'];?>"><?=$row['genero'];?></option>
+
+                                            <option value="<?=$row['genero_id'];?>"><?=$row['genero'];?></option>
+
                                         </select>
                                     </td>
                                     <td>

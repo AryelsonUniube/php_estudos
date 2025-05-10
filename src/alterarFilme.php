@@ -6,10 +6,10 @@ $genero =$_POST['genero'];
 $ano =$_POST['ano'];
 
 
-$sql = "uptade filmes set nome=?, genero_id=?, ano=? where filme=?";
 $stmt = $conn->prepare($sql);
+$sql = "uptade filmes set nome=?, genero_id=?, ano=? where filme=?;";
 if ($stmt) {
-    $stmt->bind_param("ssss",$nome,$genero,$ano,$filme);
+    $stmt->bind_param("siii",$nome,$genero,$ano,$filme);
     if ($stmt->execute()) {
         header("Location: cadastroFilmes.php");
         die;
