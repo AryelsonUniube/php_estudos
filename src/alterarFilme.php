@@ -4,7 +4,7 @@ include("conexao.php");
 $filme = $_POST['filme'];
 $nome = $_POST['nome'];
 $ano = $_POST['ano'];
-$generoId = $_POST['genero_id'];
+$generoId = $_POST['generoId'];
 
 
 
