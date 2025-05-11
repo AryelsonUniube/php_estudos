@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 08/05/2025 às 20:17
+-- Tempo de geração: 11/05/2025 às 21:23
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -33,6 +33,14 @@ CREATE TABLE `filmes` (
   `genero_id` int(10) NOT NULL,
   `ano` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `filmes`
+--
+
+INSERT INTO `filmes` (`filme`, `nome`, `genero_id`, `ano`) VALUES
+(2, 'tests', 2, 200),
+(11, 'meu', 1, 2020);
 
 -- --------------------------------------------------------
 
@@ -71,7 +79,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`cpf`, `nome`, `senha`) VALUES
-('123456', 'Giusep', '1346');
+('123456', 'Giusep', '1346'),
+('1345', 'seu pai', '1345');
 
 --
 -- Índices para tabelas despejadas
@@ -104,7 +113,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `filmes`
 --
 ALTER TABLE `filmes`
-  MODIFY `filme` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `filme` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `generos`
