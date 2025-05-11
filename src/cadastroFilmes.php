@@ -30,7 +30,7 @@
                 </div>
                 <div class="main">
                     <div class="main content">
-                        <?php include ("conexao.php")?>
+                        <?php include("conexao.php") ?>
                         <h2 class="title main">Cadastro de filmes</h2>
                         <form action="inserirFilme.php" method="post">
 
@@ -42,15 +42,15 @@
                             </div>
                             <select name="genero" id="genero">
                                 <option value="">Selecione um Gênero</option>
-                                <?php 
+                                <?php
                                 $sql = "select * from generos where status=1";
                                 if (!$resultado = $conn->query($sql)) {
                                     die("erro");
                                 }
                                 while ($row = $resultado->fetch_assoc()) {
                                 ?>
-                                <option value="<?=$row['genero_id'];?>"><?=$row['genero'];?></option>
-                                <?php 
+                                    <option value="<?= $row['genero_id']; ?>"><?= $row['genero']; ?></option>
+                                <?php
                                 }
                                 ?>
                             </select><br>
@@ -59,11 +59,11 @@
                         </form>
                         <?php
                         include("conexao.php");
-                        $sql = "select filmes.nome,generos.genero,filmes.ano,filmes.filme from filmes inner join generos on filmes.genero_id = generos.genero_id";
+                        $sql = "select filmes.nome,generos.genero,filmes.ano,filmes.filme, filmes.genero_id from filmes inner join generos on filmes.genero_id = generos.genero_id";
                         if (!$resultado = $conn->query($sql)) {
                             die("erro");
                         }
-                       
+
                         ?>
 
                         <table>
@@ -77,34 +77,36 @@
                             <?php
                             while ($row = $resultado->fetch_assoc()) {
                             ?>
-                            <tr>
-                                <form action="./alterarFilme.php" method="post">
-                                    <input type="hidden" name="filmeAnterior" value="<?= $row['filme']; ?>">
+                                <tr>
+                                    <form action="./alterarFilme.php" method="post">
+                                        <input type="hidden" name="filme" value="<?= $row['filme']; ?>">
+                                        <input type="hidden" name="genero_id" value="<?= $row['genero_id']; ?>">
 
 
-                                    <td>
-                                        <div class="nome"><input type="text" name="nome" value="<?= $row['nome']; ?>">
-                                        </div>
-                                    </td>
 
-                                    <td>
-                                        <select name="genero" id="genero">
+                                        <td>
+                                            <div class="nome"><input type="text" name="nome" value="<?= $row['nome']; ?>">
+                                            </div>
+                                        </td>
 
-                                            <option value="<?=$row['genero_id'];?>"><?=$row['genero'];?></option>
+                                        <td>
+                                            <select name="genero" id="genero">
 
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <div class="ano"><input type="text" name="ano" value="<?= $row['ano']; ?>">
-                                        </div>
-                                    </td>
-                                    <td><input type="submit" value="alterar" class="buton"></td>
-                                </form>
-                                <form action="./apagarFilme.php" method="post">
-                                    <input type="hidden" name="filme" value="<?= $row['filme']; ?>">
-                                    <td><input type="submit" value="apagar" class="buton"></td>
-                                </form>
-                            </tr>
+                                                <option value="<?= $row['genero']; ?>"><?= $row['genero']; ?></option>
+
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <div class="ano"><input type="text" name="ano" value="<?= $row['ano']; ?>">
+                                            </div>
+                                        </td>
+                                        <td><input type="submit" value="alterar" class="buton"></td>
+                                    </form>
+                                    <form action="./apagarFilme.php" method="post">
+                                        <input type="hidden" name="filme" value="<?= $row['filme']; ?>">
+                                        <td><input type="submit" value="apagar" class="buton"></td>
+                                    </form>
+                                </tr>
                             <?php
                             } ?>
                         </table>
