@@ -49,7 +49,7 @@
                                 }
                                 while ($row = $resultado->fetch_assoc()) {
                                 ?>
-                                <option value="<?= $row['genero_id']; ?>"><?= $row['genero']; ?></option>
+                                    <option value="<?= $row['genero_id']; ?>"><?= $row['genero']; ?></option>
                                 <?php
                                 }
                                 ?>
@@ -76,39 +76,39 @@
                             </tr>
                             <?php
                             while ($row = $resultado->fetch_assoc()) {
-                                $generoAtual = $row['genero'];
+
                             ?>
-                            <tr>
-                                <form action="./alterarFilme.php" method="post">
-                                    <input type="hidden" name="filmeAnterior" value="<?= $row['filme']; ?>">
-                                    <input type="hidden" name="generoId" value="<?= $row['genero_id']; ?>">
+                                <tr>
+                                    <form action="./alterarFilme.php" method="post">
+                                        <input type="hidden" name="filme" value="<?= $row['filme']; ?>">
+                                        <input type="hidden" name="generoId" value="<?= $row['genero_id']; ?>">
 
 
 
-                                    <td>
-                                        <div class="nome"><input type="text" name="nome" value="<?= $row['nome']; ?>">
-                                        </div>
-                                    </td>
+                                        <td>
+                                            <div class="nome"><input type="text" name="nome" value="<?= $row['nome']; ?>">
+                                            </div>
+                                        </td>
 
-                                    <td>
-                                        <select name="genero" id="genero">
+                                        <td>
+                                            <select name="genero" id="genero">
 
-                                            <option value="<?= $generoAtual; ?>"><?= $generoAtual; ?>
-                                            </option>
+                                                <option value="<?= $row['genero']; ?>"><?= $row['genero']; ?>
+                                                </option>
 
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <div class="ano"><input type="text" name="ano" value="<?= $row['ano']; ?>">
-                                        </div>
-                                    </td>
-                                    <td><input type="submit" value="alterar" class="buton"></td>
-                                </form>
-                                <form action="./apagarFilme.php" method="post">
-                                    <input type="hidden" name="filme" value="<?= $row['filme']; ?>">
-                                    <td><input type="submit" value="apagar" class="buton"></td>
-                                </form>
-                            </tr>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <div class="ano"><input type="text" name="ano" value="<?= $row['ano']; ?>">
+                                            </div>
+                                        </td>
+                                        <td><input type="submit" value="alterar" class="buton"></td>
+                                    </form>
+                                    <form action="./apagarFilme.php" method="post">
+                                        <input type="hidden" name="filme" value="<?= $row['filme']; ?>">
+                                        <td><input type="submit" value="apagar" class="buton"></td>
+                                    </form>
+                                </tr>
                             <?php
                             } ?>
                         </table>
