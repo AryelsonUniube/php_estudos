@@ -26,7 +26,7 @@
                     <h2 class="title menu">Menu</h2>
                     <p><a href="./cadastro.php">cadastrar usuario</a></p>
                     <p><a href="./cadastroFilmes.php">cadastrar filmes</a> </p>
-                    <p><a href="item.php">Item 3</a></p>
+                    <p><a href="./item3.php">Item 3</a></p>
                 </div>
                 <div class="main">
                     <div class="main content">

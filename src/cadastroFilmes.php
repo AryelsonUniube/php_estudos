@@ -26,7 +26,7 @@
                     <h2 class="title menu">Menu</h2>
                     <p><a href="./cadastro.php">cadastrar usuario</a></p>
                     <p><a href="./cadastroFilmes.php">cadastrar filmes</a> </p>
-                    <p><a href="item.php">Item 3</a></p>
+                    <p><a href="./item3.php">Item 3</a></p>
                 </div>
                 <div class="main">
                     <div class="main content">
@@ -49,7 +49,7 @@
                                 }
                                 while ($row = $resultado->fetch_assoc()) {
                                 ?>
-                                    <option value="<?= $row['genero_id']; ?>"><?= $row['genero']; ?></option>
+                                <option value="<?= $row['genero_id']; ?>"><?= $row['genero']; ?></option>
                                 <?php
                                 }
                                 ?>
@@ -59,7 +59,7 @@
                         </form>
                         <?php
                         include("conexao.php");
-                        $sql = "select filmes.nome,generos.genero,filmes.ano,filmes.filme, filmes.genero_id from filmes inner join generos on filmes.genero_id = generos.genero_id";
+                        $sql = "select filmes.nome,generos.genero,filmes.ano,filmes.filme, filmes.genero_id from filmes inner join generos on (filmes.genero_id = generos.genero_id)";
                         if (!$resultado = $conn->query($sql)) {
                             die("erro");
                         }
@@ -78,37 +78,49 @@
                             while ($row = $resultado->fetch_assoc()) {
 
                             ?>
-                                <tr>
-                                    <form action="./alterarFilme.php" method="post">
-                                        <input type="hidden" name="filme" value="<?= $row['filme']; ?>">
-                                        <input type="hidden" name="generoId" value="<?= $row['genero_id']; ?>">
+                            <tr>
+                                <form action="./alterarFilme.php" method="post">
+                                    <input type="hidden" name="filme" value="<?= $row['filme']; ?>">
+                                    <input type="hidden" name="generoId" value="<?= $row['genero_id']; ?>">
 
 
 
-                                        <td>
-                                            <div class="nome"><input type="text" name="nome" value="<?= $row['nome']; ?>">
-                                            </div>
-                                        </td>
+                                    <td>
+                                        <div class="nome"><input type="text" name="nome" value="<?= $row['nome']; ?>">
+                                        </div>
+                                    </td>
 
-                                        <td>
-                                            <select name="genero" id="genero">
+                                    <td>
+                                        <select name="genero" id="genero">
 
-                                                <option value="<?= $row['genero']; ?>"><?= $row['genero']; ?>
-                                                </option>
+                                            <option value="">Selecione um Gênero
+                                            </option>
+                                            <?php $sqlGeneros ="select * from generos where status=1";
+                                            if(!$resultadoGeneros =$conn->query($sqlGeneros)) {
+                                                die("erro");
+                                            }
+                                            while ($rowGeneros =$resultadoGeneros->fetch_assoc()) {
+                                                ?>
+                                            <option value="<?=$rowGeneros['genero_id'];?>"
+                                                <?=($rowGeneros['genero_id']==$row['genero_id'])?'selected':'';?>>
+                                                <?=$rowGeneros['genero'];?>
+                                            </option>
+                                            <?php 
+                                            }?>
 
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <div class="ano"><input type="text" name="ano" value="<?= $row['ano']; ?>">
-                                            </div>
-                                        </td>
-                                        <td><input type="submit" value="alterar" class="buton"></td>
-                                    </form>
-                                    <form action="./apagarFilme.php" method="post">
-                                        <input type="hidden" name="filme" value="<?= $row['filme']; ?>">
-                                        <td><input type="submit" value="apagar" class="buton"></td>
-                                    </form>
-                                </tr>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <div class="ano"><input type="text" name="ano" value="<?= $row['ano']; ?>">
+                                        </div>
+                                    </td>
+                                    <td><input type="submit" value="alterar" class="buton"></td>
+                                </form>
+                                <form action="./apagarFilme.php" method="post">
+                                    <input type="hidden" name="filme" value="<?= $row['filme']; ?>">
+                                    <td><input type="submit" value="apagar" class="buton"></td>
+                                </form>
+                            </tr>
                             <?php
                             } ?>
                         </table>
