@@ -10,12 +10,15 @@
 </head>
 
 <body>
-    <div class="body">
+
+    <main>
 
         <div class="formulario">
-            <div class="haeder">
+
+            <header>
                 <h2 class="title">LOGIN</h2>
-            </div>
+            </header>
+
             <form action="./src/dados.php" method="post">
 
                 <div class="cpf">
@@ -29,8 +32,8 @@
 
             </form>
         </div>
+    </main>
 
-    </div>
 </body>
 
 </html>
