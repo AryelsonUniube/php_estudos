@@ -11,6 +11,56 @@
 
     <title>Document</title>
 </head>
+<script>
+    function validarFormulario(event) {
+        const cpf = document.getElementById('cpf').value;
+        const senha = document.getElementById('senha').value;
+
+        if (!validarCPF(cpf)) {
+            alert("Cpf inválido.");
+            document.getElementsById("cpf").focus()
+            return false;
+
+        }
+        if (!validarSenha(senha)) {
+            alert(
+                "A senha deve conter pelo menos 6 caracteres, incluindo uma letra maiúscula, ima letra minúscula e um número."
+            );
+            return false;
+
+        }
+        return true;
+
+        function validarCPF(cpf) {
+            cpf = cpf.replace(/[^\d]+/g, '');
+
+            if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+
+            let soma = 0;
+            for (let i = 0; i < 9; i++) {
+                soma += parseInt(cpf.charAt(i)) * (10 - i);
+            }
+            let resto = (soma * 10) % 11;
+            if (resto === 10 || resto === 11) resto = 0;
+            if (resto !== parseInt(cpf.charAt(9))) return false;
+
+            soma = 0;
+            for (let i = 0; i < 10; i++) {
+                soma += parseInt(cpf.charAt(i)) * (11 - i);
+            }
+            resto = (soma * 10) % 11;
+            if (resto === 10 || resto === 11) resto = 0;
+            if (resto !== parseInt(cpf.charAt(10))) return false;
+
+            return true;
+        }
+
+        function validarSenha(senha) {
+            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
+            return regex.test(senha);
+        }
+    }
+</script>
 
 <body>
 
@@ -33,7 +83,7 @@
 
         <div class="content">
             <h2 class="title main">Cadastro de usuario</h2>
-            <form action="salvarUsuario.php" method="post">
+            <form action="salvarUsuario.php" method="post" onsubmit=" return validarFormulario()">
 
                 <div class="cpf">
                     <input type="text" name="cpf" id="cpf" placeholder="CPF:"><br>
@@ -66,7 +116,7 @@
                 while ($row = $resultado->fetch_assoc()) {
                 ?>
                     <tr>
-                        <form action="alterarUsuario.php" method="post">
+                        <form action="alterarUsuario.php" method="post" onsubmit=" return validarFormulario()">
                             <input type="hidden" name="cpfAnterior" value="<?= $row['cpf']; ?>">
                             <td>
                                 <div class="nome"><input type="text" name="nome" value="<?= $row['nome']; ?>">

@@ -2,12 +2,18 @@
 
 include("autenticacao.php");
 include("conexao.php");
+require_once __DIR__ . '/validacoes.php';
 
-$cpf = $_POST['cpf'];
+
+$cpf = preg_replace('/[^0-9]/', '', $_POST["cpf"]);
 $nome = $_POST['nome'];
 $senha = $_POST['senha'];
 
 
+
+if (!validar_cpf($cpf)) {
+    die("CPF inválido!");
+}
 $sql = "insert into usuarios (cpf,nome,senha) values (?,?,?); ";
 $stmt = $conn->prepare($sql);
 

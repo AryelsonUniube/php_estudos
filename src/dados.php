@@ -1,8 +1,16 @@
 <?php
 include("conexao.php");
-
+require_once __DIR__ . '/validacoes.php';
 $cpf = $_POST["cpf"];
 $senha = $_POST["senha"];
+
+$cpf = preg_replace('/[^0-9]/', '', $_POST["cpf"]);
+
+
+
+if (!validar_cpf($cpf)) {
+    die("erro ao validar cpf");
+}
 
 if (!isset($_POST['cpf']) || $_POST['cpf'] == '') {
     die("insira um cpf");
