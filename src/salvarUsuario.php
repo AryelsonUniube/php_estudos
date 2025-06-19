@@ -14,6 +14,11 @@ $senha = $_POST['senha'];
 if (!validar_cpf($cpf)) {
     die("CPF inválido!");
 }
+if (!validar_senha($senha)) {
+    die(
+        "A senha deve conter pelo menos 6 caracteres, incluindo uma letra maiúscula, uma letra minúscula e um número."
+    );
+}
 $sql = "insert into usuarios (cpf,nome,senha) values (?,?,?); ";
 $stmt = $conn->prepare($sql);
 

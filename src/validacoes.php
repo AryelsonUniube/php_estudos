@@ -21,3 +21,8 @@ function validar_cpf($cpf)
     }
     return true;
 }
+function validar_senha($senha)
+{
+    
+    return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/', $senha);
+}

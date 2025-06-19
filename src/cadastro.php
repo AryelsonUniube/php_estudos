@@ -1,4 +1,5 @@
-<?php include("autenticacao.php"); ?>
+<?php include("autenticacao.php"); 
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -12,55 +13,60 @@
     <title>Document</title>
 </head>
 <script>
-    function validarFormulario(event) {
-        const cpf = document.getElementById('cpf').value;
-        const senha = document.getElementById('senha').value;
+function validarFormulario(form) {
+    const cpf = form.querySelector('[name="cpf"]').value;
+    const senha = form.querySelector('[name="senha"]').value;
 
-        if (!validarCPF(cpf)) {
-            alert("Cpf inválido.");
-            document.getElementsById("cpf").focus()
-            return false;
-
-        }
-        if (!validarSenha(senha)) {
-            alert(
-                "A senha deve conter pelo menos 6 caracteres, incluindo uma letra maiúscula, ima letra minúscula e um número."
-            );
-            return false;
-
-        }
-        return true;
-
-        function validarCPF(cpf) {
-            cpf = cpf.replace(/[^\d]+/g, '');
-
-            if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
-
-            let soma = 0;
-            for (let i = 0; i < 9; i++) {
-                soma += parseInt(cpf.charAt(i)) * (10 - i);
-            }
-            let resto = (soma * 10) % 11;
-            if (resto === 10 || resto === 11) resto = 0;
-            if (resto !== parseInt(cpf.charAt(9))) return false;
-
-            soma = 0;
-            for (let i = 0; i < 10; i++) {
-                soma += parseInt(cpf.charAt(i)) * (11 - i);
-            }
-            resto = (soma * 10) % 11;
-            if (resto === 10 || resto === 11) resto = 0;
-            if (resto !== parseInt(cpf.charAt(10))) return false;
-
-            return true;
-        }
-
-        function validarSenha(senha) {
-            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
-            return regex.test(senha);
-        }
+    if (!validarCPF(cpf)) {
+        alert("CPF inválido.");
+        form.querySelector('[name="cpf"]').focus();
+        return false;
     }
+
+    if (!validarSenha(senha)) {
+        alert(
+            "A senha deve conter pelo menos 6 caracteres, incluindo uma letra maiúscula, uma letra minúscula e um número."
+        );
+        form.querySelector('[name="senha"]').focus();
+        return false;
+    }
+
+    return true;
+}
+
+
+
+function validarCPF(cpf) {
+    cpf = cpf.replace(/[^\d]+/g, '');
+
+    if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+
+    let soma = 0;
+    for (let i = 0; i < 9; i++) {
+        soma += parseInt(cpf.charAt(i)) * (10 - i);
+    }
+
+    let resto = (soma * 10) % 11;
+    if (resto === 10 || resto === 11) resto = 0;
+    if (resto !== parseInt(cpf.charAt(9))) return false;
+
+    soma = 0;
+    for (let i = 0; i < 10; i++) {
+        soma += parseInt(cpf.charAt(i)) * (11 - i);
+    }
+
+    resto = (soma * 10) % 11;
+    if (resto === 10 || resto === 11) resto = 0;
+    return resto === parseInt(cpf.charAt(10));
+}
+
+function validarSenha(senha) {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
+    return regex.test(senha);
+}
 </script>
+
+
 
 <body>
 
@@ -115,28 +121,29 @@
                 <?php
                 while ($row = $resultado->fetch_assoc()) {
                 ?>
-                    <tr>
-                        <form action="alterarUsuario.php" method="post" onsubmit=" return validarFormulario()">
-                            <input type="hidden" name="cpfAnterior" value="<?= $row['cpf']; ?>">
-                            <td>
-                                <div class="nome"><input type="text" name="nome" value="<?= $row['nome']; ?>">
-                                </div>
-                            </td>
-                            <td>
-                                <div class="cpf"><input type="text" name="cpf" value="<?= $row['cpf']; ?>">
-                                </div>
-                            </td>
-                            <td>
-                                <div class="senha"><input type="text" name="senha" value="<?= $row['senha']; ?>">
-                                </div>
-                            </td>
-                            <td><input type="submit" value="alterar" class="buton"></td>
-                        </form>
-                        <form action="apagarUsuario.php" method="post">
-                            <input type="hidden" name="cpf" value="<?= $row['cpf']; ?>">
-                            <td><input type="submit" value="apagar" class="buton"></td>
-                        </form>
-                    </tr>
+
+                <tr>
+                    <form action="alterarUsuario.php" method="post" onsubmit="return validarFormulario(this)">
+                        <input type="hidden" name="cpfAnterior" value="<?= $row['cpf']; ?>">
+                        <td>
+                            <div class="nome"><input type="text" name="nome" id="nome" value="<?= $row['nome']; ?>">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cpf"><input type="text" name="cpf" id="cpf" value="<?= $row['cpf']; ?>"></div>
+                        </td>
+                        <td>
+                            <div class="senha"><input type="text" name="senha" id="senha" value="<?= $row['senha']; ?>">
+                            </div>
+                        </td>
+                        <td><input type="submit" value="alterar" class="buton"></td>
+                    </form>
+
+                    <form action="apagarUsuario.php" method="post">
+                        <input type="hidden" name="cpf" value="<?= $row['cpf']; ?>">
+                        <td><input type="submit" value="apagar" class="buton"></td>
+                    </form>
+                </tr>
                 <?php
                 } ?>
             </table>
